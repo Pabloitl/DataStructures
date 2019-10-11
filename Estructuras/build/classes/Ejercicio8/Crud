@@ -1,0 +1,63 @@
+Ejercicio 8
+
+1.- Meta:
+    Manipular la información de un archivo
+
+2.- Datos:
+    Usa data como buffer
+    Escribir("Ingrese el nombre del archivo: "); file = ?
+
+    Si (file.exists()) entonces
+        llamar a readFile()
+    terminar
+
+3.- Calculos:
+    Usa option brindado por el menú
+    Según (option) empezar
+        caso1:   llamar a create()     romper;
+        caso2:   llamar a resultados() romper;
+        caso3:   llamar a update()     romper;
+        caso4:   llamar a delete()     romper;
+        omisión: Salir del programa
+    terminar
+
+4.- Resultados:
+    Escribir("Contenidos del archivo")
+    Mientras (l = file.readInt()) != EOF empezar
+        Escribir(l)
+    terminar
+
+5.- Navegabilidad:
+    Mientras(true) empezar
+        llamar a datos()
+        llamar a process(llamar a showMenu())
+    terminar
+
+Función showMenu()
+    Escribir("Menú:")
+    Escribir("1.- Crear")
+    Escribir("2.- Mostrar")
+    Escribir("3.- Modificar")
+    Escribir("4.- Borrar")
+    Escribir("Otro número.- Salir\n>> ")
+    retornar option = ?
+FinFunción
+
+Función create()
+    Escribir("Dato a ingresar >> "); n = ?
+    file.seek(file.length - 1)
+    file.write(n)
+FinFunción
+
+Función update()
+    Escribir("Ingresa registro >> "); r = ?
+    Escribir("Dato a ingresar >> "); n = ?
+    file.seek(r * Integer.BYTES)
+    file.write(n)
+FinFunción
+
+Función delete()
+    Escribir("Ingresa registro >> "); r = ?
+    file.seek(r * Integer.BYTES)
+    file.write(0)
+FinFunción

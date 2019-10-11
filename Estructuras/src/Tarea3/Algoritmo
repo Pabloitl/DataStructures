@@ -1,0 +1,34 @@
+1.- Meta:
+    Escribir("Modelar acciones de manipulación de flujos en forma de canal")
+    Escribir("usando Buffered(Input/Output)Stream para ordenar datos")
+
+2.- Datos:
+    Usa args[0] como el archivo de entrada
+    Usa un arreglo buff[] como buffer
+
+    in = abrir(args[0])
+    num = 0, i = -1
+    mientras ((num = in.lee()) != -1) emperzar
+        buff[++i] = atob(num)
+    terminar
+
+    cerrar(in)
+
+3.- Calculos:
+    sort(buff)
+
+4.- Resultados:
+    Usa args[1] como el archivo de salida
+
+    out = abrir(args[1])
+    out.escribe(buff)
+
+    cerrar(out)
+
+5.- Navegabilidad:
+    Si (args.length != 2) entonces empezar
+        llamar a meta()
+        Escribir("Mal uso de argumentos")
+        Escribir("java Ordenar FUENTE DESTINO")
+        Salir del programa
+    terminar

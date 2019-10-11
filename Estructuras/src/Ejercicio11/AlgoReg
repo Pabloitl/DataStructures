@@ -1,0 +1,22 @@
+1.- Meta: para guardar en un archivo que ilustre las prestaciones de RandomAccesFile como archivos binarios
+    de acceso aleatorio Solo se pregunta el nombre, la edad y el peso de una persona y se agregan sus datos al archivo
+
+2.- Datos: Se usara un archivo
+    preguntar:
+    "Deme nombre del archivo que sesea usar: ", namArch= ?
+    mientras (hay_mas_registros) empezar
+        Escribe("Deme el nmobre: "), nombre = ?
+        Escribe("Deme edad: "), edad = ?
+        Escribe("Deme su peso: "), peso = ?
+        guarde(nombre, edad, peso) en el archivo de datos;
+    terminar
+
+3.- Calculos: No hay calculos
+
+4.- Resultados:
+    Desde i = 1; hasta i = longitud(Datos.dir) para empezar
+        lee(nombre, edad, peso) del archivo de datos
+        despliega(nombre, edad y peso) en la pantalla
+    terminar
+
+5.- Navegabilidad: Sin condición de paro
