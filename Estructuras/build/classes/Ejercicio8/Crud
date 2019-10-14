@@ -1,7 +1,7 @@
 Ejercicio 8
 
 1.- Meta:
-    Manipular la información de un archivo
+    Manipular la información de un archivo como un CRUD
 
 2.- Datos:
     Usa data como buffer
@@ -10,6 +10,11 @@ Ejercicio 8
     Si (file.exists()) entonces
         llamar a readFile()
     terminar
+
+2.1.- Datos:
+    Usa s como dato a pedir
+    Escribir("Ingrese " + s + ": "), foo = ?
+
 
 3.- Calculos:
     Usa option brindado por el menú
@@ -33,7 +38,7 @@ Ejercicio 8
         llamar a process(llamar a showMenu())
     terminar
 
-Función showMenu()
+5.1 Función showMenu()
     Escribir("Menú:")
     Escribir("1.- Crear")
     Escribir("2.- Mostrar")
@@ -43,21 +48,21 @@ Función showMenu()
     retornar option = ?
 FinFunción
 
-Función create()
-    Escribir("Dato a ingresar >> "); n = ?
+3.1 Función create()
+    n = llamar a datos2.1("dato")
     file.seek(file.length - 1)
     file.write(n)
 FinFunción
 
-Función update()
-    Escribir("Ingresa registro >> "); r = ?
-    Escribir("Dato a ingresar >> "); n = ?
+3.2 Función update()
+    r = llamar a datos2.1("registro")
+    n = llamar a datos2.1("dato")
     file.seek(r * Integer.BYTES)
     file.write(n)
 FinFunción
 
-Función delete()
-    Escribir("Ingresa registro >> "); r = ?
+3.3 Función delete()
+    r = llamar a datos2.1("registro")
     file.seek(r * Integer.BYTES)
     file.write(0)
 FinFunción

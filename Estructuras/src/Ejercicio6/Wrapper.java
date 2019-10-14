@@ -8,10 +8,10 @@ import java.util.logging.Logger;
 public class Wrapper {
     public static void main(String[] args) {
         Wrapper test = new Wrapper();
+
         test.showGoal();
-        while(true) {
+        while(true)
             test.showResult(test.showMenu());
-        }
     }
 
     private void showGoal() {
@@ -41,10 +41,8 @@ public class Wrapper {
             numerator = getInt();
             System.out.print("Input a denominator >>> ");
             denominator = getInt();
-
-            try {
-                arr[i] = new Rational(numerator, denominator);
-            }catch(Exception ex) {
+            try {  arr[i] = new Rational(numerator, denominator);  }
+            catch(Exception ex) {
                 System.out.println(ex.getMessage());
                 i--;
             }
@@ -54,23 +52,12 @@ public class Wrapper {
 
     private void showResult(int option) {
         switch(option) {
-            case 1:
-                testSetters();
-                break;
-            case 2:
-                testGetters();
-                break;
-            case 3:
-                testAlgebraic();
-                break;
-            case 4:
-                testRelational();
-                break;
-            case 5:
-                testSimplification();
-                break;
-            default:
-                System.exit(0);
+            case 1: testSetters(); break;
+            case 2: testGetters(); break;
+            case 3: testAlgebraic(); break;
+            case 4: testRelational(); break;
+            case 5: testSimplification(); break;
+            default: System.exit(0);
         }
     }
 
@@ -103,6 +90,7 @@ public class Wrapper {
 
     private void testGetters() {
         Rational arr[] = getRational(1);
+
         System.out.printf("getNumerator   -> %d\n", arr[0].getNumerator());
         System.out.printf("getDenominator -> %d\n", arr[0].getDenominator());
         System.out.printf("get -> %f\n", arr[0].get());
@@ -110,8 +98,8 @@ public class Wrapper {
 
     private void testAlgebraic() {
         Rational arr[] = getRational(2);
-        try {
 
+        try {
             System.out.printf("r1 + r2 -> %s\n", arr[0].sum(arr[1]));
             System.out.printf("r1 - r2 -> %s\n", arr[0].sub(arr[1]));
             System.out.printf("r1 * r2 -> %s\n", arr[0].mul(arr[1]));
@@ -125,6 +113,7 @@ public class Wrapper {
 
     private void testRelational() {
         Rational arr[] = getRational(2);
+
         System.out.printf("r1 == r2 -> %s\n", arr[0].equals(arr[1]));
         System.out.printf("r1 > r2  -> %s\n", arr[0].gt(arr[1]));
         System.out.printf("r1 < r2  -> %s\n", arr[0].lt(arr[1]));
@@ -141,9 +130,10 @@ public class Wrapper {
 
     private int getInt() {
         Scanner in = new Scanner(System.in);
-        while(!in.hasNextInt()) {
+
+        while(!in.hasNextInt())
             System.out.print(in.nextLine() + " is not valid\n>>> ");
-        }
         return in.nextInt();
     }
 }
+

@@ -36,17 +36,9 @@ public class Rational implements Rationalizable {
         setDenominator(y);
     }
 
-    public int getNumerator() {
-        return x;
-    }
-
-    public int getDenominator() {
-        return y;
-    }
-
-    public float get() {
-        return x / (float) y;
-    }
+    public int getNumerator() {  return x;  }
+    public int getDenominator() {  return y;  }
+    public float get() {  return x / (float) y;  }
 
     @Override
     public Rationalizable sum(Rationalizable r) throws Exception {
@@ -55,7 +47,7 @@ public class Rational implements Rationalizable {
         int denominator = y * r2.getDenominator();
         return new Rational(numerator, denominator);
     }
-    
+
     @Override
     public Rationalizable sub(Rationalizable r) throws Exception {
         Rational r2 = (Rational) r;
@@ -129,9 +121,7 @@ public class Rational implements Rationalizable {
     }
 
     @Override
-    public String toString() {
-        return x + "/" + y;
-    }
+    public String toString() {  return x + "/" + y;  }
 
     @Override
     public void simplify() {
@@ -142,10 +132,11 @@ public class Rational implements Rationalizable {
     @Override
     public void reduce() {
         int div = gcd(x, y);
+
         x /= div;
         y /= div;
     }
-    
+
     @Override
     public void solveSignum() {
         if(y < 0){

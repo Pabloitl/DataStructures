@@ -21,6 +21,7 @@ public class Fibonacci {
 
     public void datos() {
         Scanner in = new Scanner(System.in);
+
         System.out.print("Ingrese el límite: ");
         l = in.nextInt();
     }
@@ -36,3 +37,4 @@ public class Fibonacci {
 
     public void resultados(int n) {  System.out.print(n + " ");  }
 }
+
