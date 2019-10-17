@@ -2,8 +2,6 @@ package Ejercicio6;
 
 import Ejercicio4.Rational;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Wrapper {
     public static void main(String[] args) {
@@ -31,7 +29,7 @@ public class Wrapper {
         return getInt();
     }
 
-    private Rational[] getRational(int n) {
+    private Rational[] askRational(int n) {
         Rational arr[] = new Rational[n];
         int numerator, denominator;
 
@@ -63,7 +61,7 @@ public class Wrapper {
 
     private void testSetters() {
         try {
-            Rational arr[] = getRational(1);
+            Rational arr[] = askRational(1);
             System.out.printf("From %s\n", arr[0]);
 
             System.out.println("setNumerator");
@@ -89,7 +87,7 @@ public class Wrapper {
     }
 
     private void testGetters() {
-        Rational arr[] = getRational(1);
+        Rational arr[] = askRational(1);
 
         System.out.printf("getNumerator   -> %d\n", arr[0].getNumerator());
         System.out.printf("getDenominator -> %d\n", arr[0].getDenominator());
@@ -97,7 +95,7 @@ public class Wrapper {
     }
 
     private void testAlgebraic() {
-        Rational arr[] = getRational(2);
+        Rational arr[] = askRational(2);
 
         try {
             System.out.printf("r1 + r2 -> %s\n", arr[0].sum(arr[1]));
@@ -112,7 +110,7 @@ public class Wrapper {
     }
 
     private void testRelational() {
-        Rational arr[] = getRational(2);
+        Rational arr[] = askRational(2);
 
         System.out.printf("r1 == r2 -> %s\n", arr[0].equals(arr[1]));
         System.out.printf("r1 > r2  -> %s\n", arr[0].gt(arr[1]));
@@ -123,7 +121,7 @@ public class Wrapper {
     }
 
     private void testSimplification() {
-        Rational arr[] = getRational(1);
+        Rational arr[] = askRational(1);
 
         System.out.printf("After simplifying %s\n", arr[0]);
     }
