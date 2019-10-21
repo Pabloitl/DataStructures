@@ -8,10 +8,10 @@ public class Fibonacci {
     int[] serie = {0, 1};
 
     public static void main(String[] args) {
-        Timer t = new Timer();
         Fibonacci f = new Fibonacci();
         f.meta();
         f.datos();
+        Timer t = new Timer();
         f.calculos();
         t.calculos();
         t.resultados();

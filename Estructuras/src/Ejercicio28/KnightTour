@@ -1,0 +1,53 @@
+1.- Meta:
+    Escribir("Mostrar la ruta seguida por un caballo"
+        + "de ajedrez para recorrer un tablero en su"
+        + "totalidad)
+
+2.- Datos:
+    in = abrir("Coordenadas.txt")
+    t  = llamar a readComponents("Tablero", in)
+    c  = llamar a readComponents("Caballo", in)
+
+2.1.-
+    Funcion readComponents(String msg, Archivo in)
+        retornar un nuevo Punto(in.nextInt(), in.nextInt())
+    FinFuncion
+
+3.- Calculos:
+    llamar a path(c.getCoordinates())
+
+3.1.-
+    Funcion path(Point point)
+        Si(no isValid(point)) entonces
+            retornar false
+        terminar
+        t.setCasilla(point.getX(), point.getY(), contador++)
+        Si(contador == t.getX() ** 2) entonces
+            retornar verdadero
+        terminar
+        Para cada(newPoint en c.nextMoves()) empezar
+            c.setCoordinates(newPoint)
+            Si(path(newPoint)) entonces
+                retornar verdadero
+            terminar
+        terminar
+        contador--
+        t.setCasilla(point.getX(), point.getY(), -1)
+    FinFuncion
+
+3.2.-
+    Funcion isValid(Point p)
+        Si(p.getDX() < 0 || p.getX() >= t.getX()) entonces
+            retornar falso
+        terminar
+        Si(p.getY() < 0 || p.getY() >= t.getX()) entonces
+            retornar falso
+        terminar
+        Si(t.getCasilla(p.getX(), p.getY() >= 0) entonces
+            retornar flaso
+        terminar
+        retornar verdadero
+    FinFuncion
+
+3.3.- Resultados:
+    Escribir(t)

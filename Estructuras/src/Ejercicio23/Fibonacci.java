@@ -11,7 +11,8 @@ public class Fibonacci {
         Timer t = new Timer();
         Fibonacci f = new Fibonacci();
         f.meta();
-        f.calculos(f.datos());
+        int temp = f.datos();
+        f.calculos(temp);
         f.resultados();
         t.calculos();
         t.resultados();

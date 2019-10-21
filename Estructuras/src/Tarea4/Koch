@@ -1,0 +1,41 @@
+1.- Meta:
+    Escribir("Dibujar la curva Koch")
+
+2.- Datos:
+    Escribir("Levels: "), levels = ?
+    Escribir("Length: "), length = ?
+
+3.- Calculos:
+    llamar a koch_snowflake(int length, int levels)
+
+3.1.-
+    Funcion koch_snowflake(int length, int n)
+        llamer a koch(length, n)
+        rotar(120°)
+        llamer a koch(length, n)
+        rotar(120°)
+        llamer a koch(length, n)
+    FinFuncion
+
+3.2.-
+    Funcion koch(int length, int n)
+        Si(n == 0) entonces
+            llamar a resultados(length)
+            retornar
+        terminar
+        length /= 3
+        llamar a koch(length, n - 1)
+        rotar(60)
+        llamar a koch(length, n - 1)
+        rotar(-120)
+        llamar a koch(length, n - 1)
+        rotar(60)
+    FinFuncion
+
+4.- Resultados:
+    Usa length como argumento
+    dibujar_linea(length)
+
+5.- Navegabilidad:
+    No hay, al mostrar la curva termina el programa
+    hasta que el usuario cierre la ventana emergente

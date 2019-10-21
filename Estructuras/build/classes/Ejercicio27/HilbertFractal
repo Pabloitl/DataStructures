@@ -1,0 +1,31 @@
+1.- Meta:
+    Escribir("Dibujar la curva Hilbert")
+
+2.- Datos:
+    deepness = slider.value
+
+3.- Calculos:
+    Usa x = y = 0
+
+    empezarFigura()
+    drawCurve(x, y, dim, 0, 0, dim, deepness)
+    terminarFigura()
+
+4.-Resultados:
+    Funcion drawCurve(x, y , xi, xj, yi, yj, n)
+        Si(n <= 0) entonces
+            vertice(x += (xi + yi)/2, y += (xj + yj)/2)
+        Sino
+            drawCurve(x,           y,           yi/2, yj/2,  xi/2,  xj/2, n-1);
+            drawCurve(x+xi/2,      y+xj/2 ,     xi/2, xj/2,  yi/2,  yj/2, n-1);
+            drawCurve(x+xi/2+yi/2, y+xj/2+yj/2, xi/2, xj/2,  yi/2,  yj/2, n-1);
+            drawCurve(x+xi/2+yi,   y+xj/2+yj,  -yi/2,-yj/2, -xi/2, -xj/2, n-1);
+    FinFuncion
+
+5.- Navegabilidad:
+    meta()
+    Mientras(true) empezar
+        limpiar fondo
+        datos()
+        calculos()
+    terminar
