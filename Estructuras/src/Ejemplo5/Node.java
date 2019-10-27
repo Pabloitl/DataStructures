@@ -1,6 +1,6 @@
 package Ejemplo5;
 
-public class NOde {
+public class Node {
     private Object info;
     private Node next;
 
@@ -16,8 +16,8 @@ public class NOde {
         setNext(n);
     }
 
-    setInfo
-    setNext
-    getInfo
-    getNext
+    public void setInfo(Object info) { this.info = info; }
+    public void setNext(Node next) {this.next = next; }
+    public Object getInfo() { return info; }
+    public Node getNext() { return next; }
 }

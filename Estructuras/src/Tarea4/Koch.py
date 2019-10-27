@@ -5,8 +5,8 @@ def meta():
 
 def datos():
     global levels, length
-    levels = turtle.numinput("Deep (0 <= x <= 6)", "Levels: ", 0, 0, 6)
-    length = turtle.numinput("Lines (1 <= x <= 400", "Length: ", 1, 1, 400)
+    levels = turtle.numinput("Deep", "Levels (0 <= x <= 6): ", 0, 0, 6)
+    length = turtle.numinput("Lines", "Length (1 <= x <= 400: ", 1, 1, 400)
 
 def calculos(length, n):
     turtle.ht()

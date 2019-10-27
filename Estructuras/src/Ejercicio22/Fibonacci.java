@@ -1,6 +1,6 @@
 package Ejercicio22;
 
-import Ejercicio21.Timer;
+// import Ejercicio21.Timer;
 import java.util.Scanner;
 
 public class Fibonacci {
@@ -11,19 +11,39 @@ public class Fibonacci {
         Fibonacci f = new Fibonacci();
         f.meta();
         f.datos();
-        Timer t = new Timer();
+        // Timer t = new Timer();
         f.calculos();
-        t.calculos();
-        t.resultados();
+        // t.calculos();
+        // t.resultados();
     }
 
     public void meta() { System.out.println("Mostrar la sucesión Fibonacci"); }
 
     public void datos() {
         Scanner in = new Scanner(System.in);
+        String msg = "Ingrese el límite: ";
 
-        System.out.print("Ingrese el límite: ");
-        l = in.nextInt();
+        l = getInt(msg, 0, Integer.MAX_VALUE);
+    }
+
+    private int getInt(String msg, int min, int max) {
+        Scanner in = new Scanner(System.in);
+        int result;
+
+        do {
+            System.out.print(msg);
+            while(!in.hasNextInt()) {
+                String temp = "";
+                try { temp = in.next(); }
+                catch (Exception e) {
+                    System.out.println("Error");
+                    in = new Scanner(System.in);
+                }
+                System.out.println(temp + " no es valido");
+            }
+            result = in.nextInt();
+        } while(result < min || result > max);
+        return result;
     }
 
     public void calculos() {

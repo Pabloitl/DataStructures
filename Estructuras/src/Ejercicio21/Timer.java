@@ -22,8 +22,8 @@ public class Timer {
         int tiempo = (datos() - inicio) / 1000;
 
         segundos = tiempo % 60;
-        minutos = (tiempo / 60) % 60;
-        horas = tiempo / 3600;
+        minutos  = (tiempo / 60) % 60;
+        horas    = tiempo / 3600;
     }
 
     public void resultados() {
