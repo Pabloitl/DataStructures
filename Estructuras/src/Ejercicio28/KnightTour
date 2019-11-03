@@ -10,7 +10,7 @@
 
 2.1.-
     Funcion readComponents(String msg, Archivo in)
-        retornar un nuevo Punto(in.nextInt(), in.nextInt())
+        retornar un nuevo Pair(in.nextInt(), in.nextInt())
     FinFuncion
 
 3.- Calculos:

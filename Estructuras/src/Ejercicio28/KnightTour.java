@@ -32,26 +32,26 @@ public class KnightTour {
         c = new Caballo(readComponents("Punto inicial del caballo", in));
     }
 
-    private Point readComponents(String msg, Scanner in) {
-        return new Point(in.nextInt(), in.nextInt());
+    private Pair readComponents(String msg, Scanner in) {
+        return new Pair(in.nextInt(), in.nextInt());
     }
 
     public void calculos() { path(c.getCoordinates()); }
 
-    private boolean path(Point point) {
+    private boolean path(Pair point) {
         if(!isValid(point)) return false;
         t.setCasilla(point.getX(), point.getY(), contador++);
         if(contador == Math.pow(t.getX(), 2)) return true;
-        for(Point newPoint : c.nextMoves()){
-            c.setCoordinates(newPoint);
-            if(path(newPoint)) return true;
+        for(Pair newPair : c.nextMoves()){
+            c.setCoordinates(newPair);
+            if(path(newPair)) return true;
         }
         contador--;
         t.setCasilla(point.getX(), point.getY(), -1);
         return false;
     }
 
-    private boolean isValid(Point p) {
+    private boolean isValid(Pair p) {
         if(p.getX() < 0 || p.getX() >= t.getX()) return false;
         if(p.getY() < 0 || p.getY() >= t.getX()) return false;
         if(t.getCasilla(p.getX(), p.getY()) >= 0)return false;
@@ -63,10 +63,10 @@ public class KnightTour {
     }
 }
 
-class Point {
+class Pair {
     private int x, y;
 
-    public Point(int x, int y) {
+    public Pair(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -88,7 +88,7 @@ class Point {
     }
 }
 
-class Tablero extends Point {
+class Tablero extends Pair {
     int[][] tablero;
 
     public Tablero(int x, int y) {
@@ -96,7 +96,7 @@ class Tablero extends Point {
         inicializar();
     }
 
-    public Tablero(Point p) {
+    public Tablero(Pair p) {
         this(p.getX(), p.getY());
     }
 
@@ -126,7 +126,7 @@ class Tablero extends Point {
     }
 }
 
-class Caballo extends Point {
+class Caballo extends Pair {
     int[] dx = {2, 1, -1, -2, -2, -1, 1, 2},
           dy = {1, 2, 2, 1, -1, -2, -2, -1};
 
@@ -134,24 +134,24 @@ class Caballo extends Point {
         super(x, y);
     }
 
-    public Caballo(Point p) {
+    public Caballo(Pair p) {
         this(p.getX(), p.getY());
     }
 
-    public Point[] nextMoves() {
-        Point[] moves = new Point[dx.length];
+    public Pair[] nextMoves() {
+        Pair[] moves = new Pair[dx.length];
         for(int i = 0; i < dx.length; ++i) {
-            moves[i] = new Point(getX() + dx[i], getY() + dy[i]);
+            moves[i] = new Pair(getX() + dx[i], getY() + dy[i]);
         }
         return moves;
     }
 
-    public void setCoordinates(Point point) {
+    public void setCoordinates(Pair point) {
         setX(point.getX());
         setY(point.getY());
     }
 
-    public Point getCoordinates() {
-        return new Point(getX(), getY());
+    public Pair getCoordinates() {
+        return new Pair(getX(), getY());
     }
 }
