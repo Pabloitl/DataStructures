@@ -1,0 +1,78 @@
+1.- Meta:
+    Probar la clase Vector derivada de Dirigible ADT
+
+2.- Datos:
+    // Usa n para saber cuantos Vectores leer
+    vectors[] = nuevo Vector[n]
+    abrir(in)
+
+    Desde i = 0 mientras i < n incrementar i en 1
+        x = in.leerDouble()
+        y = in.leerDouble()
+        vectors[i] = nuevo Vector(x, y)
+    terminar
+    cerrar(in)
+
+3.- Calculos:
+    3.1.- TestSetters:
+        vectors[] = llamar a datos(1)
+        comp[] = {0, 1}
+
+        msg  = "v(original) = " + vectors[0]
+        vectors[0].setI(comp[0])
+        vectors[0].setJ(comp[1])
+        msg += "v(despues)  = " + vectors[0]
+
+    3.2.- TestGetters:
+        vectors[] = llamar a datos(1)
+
+        msg  = "I   -> " + vectors[0].getI()
+        msg += "J   -> " + vectors[0].getJ()
+        msg += "|v| -> " + vectors[0].getMagnitud()
+        msg += "<   -> " + vectors[0].getDireccion()
+
+    3.3.- TestOperations:
+        vectors[] = llamar a datos(2)
+        escalar = 2
+
+        msg  = "v1 + v2 = " + vectors[0].sum(vectors[1])
+        msg += "v1 - v2 = " + vectors[0].sub(vectors[1])
+        msg += "v1 . v2 = " + vectors[0].pesc(vectors[1])
+        msg += "v2 x v2 = " + vectors[0].pcruz(vectors[1])
+        msg += "2(v1)   = " + vectors[0].mult(escalar)
+
+4.- Resultados:
+    llamar a escribir()
+    llamar a mostrar()
+
+    4.1.- Escribir:
+        abrir(out)
+        out.escribir(msg)
+        cerrar(out)
+
+    4.2.- Mostrar:
+        Escribir(msg)
+
+5.- Navegabilidad:
+    // Usa in  como arg[0]
+    // Usa out como arg[1]
+    Hacer
+        llamar a MosrarMenu()
+    Mientras(option < 0 o option >= 4)
+    llamar a Direccionar()
+
+    5.1.- MostrarMenu:
+        Escribir("Menu: ")
+        Escribir("1.- Setters")
+        Escribir("2.- Getters")
+        Escribir("3.- Operaciones")
+        Escribir("4.- Salir")
+        Escribir("opción: ") option = ?
+
+    5.1.- Direccionar:
+        Según(option) empezar
+            caso 1: llamar a testSetters();    break;
+            caso 2: llamar a testGetters();    break;
+            caso 3: llamar a testOperations(); break;
+            caso 4: Salir del programa
+        terminar

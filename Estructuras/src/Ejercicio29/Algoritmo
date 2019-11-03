@@ -1,0 +1,152 @@
+1.- Meta:
+    Para ilustrar la inserción de nodods al principio de una lista simplemente ligada usan domo Nodo
+    un IMC pueden leerse los datos de archivo o capturarlos por centinela. La salida puede ser elegible
+    a pantalla o archivo.
+
+2.- Datos:
+    2.1.- captura()
+        Se capturan datos: nombre, peso,y talla de varias personas uasndo datos centinela para terminar
+
+        cuenta = 1
+        MySimpleLinkedList lsl = newa MySimpleLinkedList();
+        centinela = "fin";
+        Escribe("Deme el nombre d lapersona" + cuenta + ":")
+        Escribe("o \"fin\" para terminar: "); nombre = ?
+        Mientras (nombre != "fin)) empezar
+            Escribe("cuanto pesa la persona" + cuenta + ": "); peso = ?
+            Escribe("la talla de la persona" + cuenta + "es : ");; talla = ?
+            cuanta = cuenta + 1;
+            imcp = nuevo IMC(nombre, peso, talla)
+            lsl.insert(imcp)
+            Escribe("Deme el nombre de la persona" + cueta)
+            Escribe("o \"fin\" para termianr"); nombre = ?
+        terminar
+
+    2.2.- lectura()
+        Dr lrrtsn lod fsyod<. nombre, peso y talla de varias personas
+        de un archivo en el disco cuyo nombre debera saber el usuario
+        en caso de no saberlo se presentara la lista de arhivo
+
+            2.2.2 pideArchivo()
+                preguntar al usuario:
+                "Deme nombre de archivo a leer:"
+                archivo =?
+                Si (arhcivo == null || archivo == "")
+                    ListaFicheros()
+                Sino
+                    datosIn(archivo)
+
+    2.3.- datosIn(archivo) : int // entrada por archivo
+        cuanta = 0
+        in = abrir(arhicvo)
+        Mientras (in.leer() != E)F) empezar
+            cuenta = cuanta + 1;
+            nombre = in.nextLine();
+            peso = toDouble(in.nextLine());
+            talla = toDouble(in.nextLine());
+            imcp = nuevo IMC(nombre, peso, talla);
+            lsl.insert(imcp);
+        terminar
+        in.close()
+        regresar cuenta al llamador
+
+3.- Calculos:
+    3.1.- calcImc(imcp)
+        peso = imcp.getPeso();
+        talla = imcp.getTalla();
+        if (talla != 0)
+                imc = peso / (talla * talla);
+        regresar imc calculado al llamador
+
+    3.2.- insert(lsl, imc)      // debe implementarse en el ADT
+        q = nuevo IMC();
+        q.setNext(lsl)
+        lsl = q;
+
+4.- Resultados:
+    4.1.- Desplegar la lista de nodod insertados en la misma
+        // Se imprime una tablita para dar formato
+        cuenta = 1;
+        temp = lsl;
+        Mientras (temp != null) empezar
+            // Se imprimen los getters
+            Escribe(cuenta + " " + temp.info.getNombre());
+            Escribe(" " + temp.info.getPeso());
+            Escribe(" " + temp.info.getTalla());
+            temp = temp.getNext();
+        terminar
+
+    4.2.- Guardar la información de la lista en el disco
+        Escribe("Deme nombrer del arhcivo: "); arch = ?
+        Si (existe(archi))
+            datosOut(arch, lsl);
+        de otro modo ListaFicheros("."); // método auxiliar
+
+    4.3.- datosOut(arch, lsl)
+        out = abrir(arch)
+        temp = lsl
+        Mientras (temp != null) empezar
+            Escribe(arch, temp.info.getNombre());
+            Escribe(arch, temp.info.getPeso());
+            Escribe(arch, temp.info.getTalla());
+            temp = temp.getNext();
+        terminar
+        Esribe("Se escribieron los datos en: " + file);
+        close(arch);        // Cierra el archivo de salida
+
+5.- Navegabilidad:
+    5.1.- principal
+        Repetir empezar
+            Escribir("Menu principal: ");
+            Escribir(1.- Descripción del programa);
+            Escribir(2.- Entrada de datos"
+                    3.- Restulados
+                    4.- Ayuda
+                    5.- Salir
+                    su opción:);
+            opcion = ?
+            Según (opcion) empezar
+                caso 1: Inicio(); romper;
+                caso 2: entradas(); romper;
+                caso 3: salidas(); romper;
+                caso 4: ayuda(); romper;
+                dafault: escribir("Opciones validas 1-5");
+            terminar
+        terminar mientras (opcion != 5);
+
+    5.2.- sub menu de entradas()
+        Repetir empezar
+            Escribir("calculo del indice de masa corporal
+
+                    1.- por teclado
+                    2.- por archivo
+                    3.- Regresar al menú principal
+
+                    su eleccioń: ");
+            entrada = ?
+            Según (entrada) empezar
+                caso 1: captura(); romper;
+                caso 2: lectura(); romper;
+                omición: Escribir("opciones validas 1-3");
+            terminar
+        terminar Mientras(entrada != 3);
+
+    5.3.- Ayuda()
+        Escribir("Al dar enter se presentaln loos archivo almacenados en
+        el directorio de trabajo actual");
+
+    5.4.- Salidas()
+        opción = 0;
+        Repetir empezar
+            Escribe("Salidas: incdicd de masa corporal
+                    1.- por pantalla
+                    2.- por archivo
+                    3.- regresar al principal
+
+                    su eleccion:"); opcion = ?
+            Según (opcion) empezar
+                caso 1: resultaods(4.1); romper
+                caso 2: guardar(4.2); romper;
+                omision: Escribe opciones validas
+            terminar
+        terminar Mientras (opcion != 3);

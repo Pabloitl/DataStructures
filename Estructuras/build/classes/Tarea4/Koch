@@ -27,7 +27,7 @@
         llamar a koch(length, n - 1)
         rotar(60)
         llamar a koch(length, n - 1)
-        rotar(120)
+        rotar(-120)
         llamar a koch(length, n - 1)
         rotar(60)
     FinFuncion
