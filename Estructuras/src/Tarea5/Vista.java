@@ -9,4 +9,12 @@ public class Vista {
         mostrar(msg);
         System.out.println();
     }
+
+    private int getInt() {
+        Vista v = new Vista();
+        Scanner in = new Scanner(System.in);
+        while(!in.hasNextInt())
+            v.mostrarln(in.nextLine() + " no es válido");
+        return in.nextInt();
+    }
 }

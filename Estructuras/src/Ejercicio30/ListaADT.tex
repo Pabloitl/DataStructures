@@ -1,0 +1,63 @@
+\documentclass{article}
+
+\usepackage[margin = 1cm]{geometry}
+
+\begin{document}
+    \section*{Definición}
+
+    \LARGE
+    Matemáticamente, una lista es una secuencia de cero o más elementos
+    de un determinado tipo.
+
+    $$ (a_1, a_2, a_3, \dots, a_n) $$
+    donde $ n \ge 0 $, si $ n = 0 $ la lista es vacía.
+
+    Los elementos de la lista etienen la propiedad de que sus elementos están ordenados de forma lineal, según las posiciones que ocupan en la misma. Se dice que $ a_i $ precede a $ a_{i + 1} $ para $ i = 1, \dots, n - 1 $ y que $ a_i $ sucede a $ a_{i + 1} $ para $ i = 2, \dots, n $.
+
+    Las siguiente operaciones se restringen con:
+    $$ \forall L \in Lista, \forall x \in Lista, \forall p \in puntero $$
+
+    \Large
+    \section*{Constructores}
+
+    \begin{center}
+        \begin{tabular}{|l|l|}
+            \hline
+            listaVacia(L) & Inicializa la lista L como lista vacía \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    \section*{Getters}
+
+    \begin{center}
+        \begin{tabular}{|l|l|}
+            \hline
+            getAnterior(p) & Devuelva la posición/dirección del nodo anterior a p \\
+            \hline
+            getPrimero() & Devuelve la posición/dirección del primer nodo de la lista L \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    \section*{Operaciones}
+
+    \begin{center}
+        \begin{tabular}{|l|l|}
+            \hline
+            esVacia() & Determina si la lista L está vacía \\
+            \hline
+            insertar(x, p) & Inserta en la lista L un nodo con el campo dato x, \\&delante del nodo de dirección p \\
+            \hline
+            inserPrimero(x) & Inserta un nodo con el dato x como primer nodo de la lista L \\
+            \hline
+            localizar(x) & Devuelve la posición/dirección donde está el campo de información x \\
+            \hline
+            suprimir(x) & Elimina de la lista el nodo que contiene el dato x \\
+            \hline
+            anula() & Vacia la lista L \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+\end{document}

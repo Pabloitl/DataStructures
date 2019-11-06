@@ -96,7 +96,7 @@ public class TestVector {
         v.mostrarln("2.- Getters");
         v.mostrarln("3.- Operaciones");
         v.mostrar("opción: ");
-        option = getInt();
+        option = v.getInt();
     }
 
     private void direccionar() {
@@ -106,14 +106,6 @@ public class TestVector {
             case 3: testOperations(); break;
             case 4: System.exit(0);
         }
-    }
-    
-    private int getInt() {
-        Vista v = new Vista();
-        Scanner in = new Scanner(System.in);
-        while(!in.hasNextInt())
-            v.mostrarln(in.nextLine() + " no es válido");
-        return in.nextInt();
     }
 }
 

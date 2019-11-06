@@ -1,5 +1,12 @@
 1.- Meta:
     Probar la clase Vector derivada de Dirigible ADT
+    de forma pesistente (leyendo y escribiendo a archivos)
+    Se pretende probar:
+        * Setters
+        * Getters
+        * Operaciones Aritméticas
+    A elección del usuario
+
 
 2.- Datos:
     // Usa n para saber cuantos Vectores leer

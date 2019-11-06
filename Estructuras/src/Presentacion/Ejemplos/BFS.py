@@ -5,32 +5,30 @@
 
 2.- Datos:
     2.1.- Inicalizar:
-        G = {
-                1: set([2, 3]),
-                2: set([4, 5]),
-                3: set([6, 7]),
-                4: set([8, 9]),
-                5: set(),
-                6: set(),
-                7: set(),
-                8: set(),
-                9: set(),
-            }
         visitados = set()
         parent = dict()
+        G = eval(leerGrafo())
+
+        2.1.1.- LeerGrafo:
+            // Lee el grafo de un archivo
+            Escribir("Archivo: ") file = ?
+            abrir(file)
+            s = leerTodo(file)
+            cerrar(file)
+            retornar s
 
     2.2.- PedirDatos:
         Escribir("Nodo inicio: ") inicio = ?
         Escribir("Nodo final : ") final  = ?
 
 3.- Calculos:
-    // Usa G (grafo), start_v (Nodo inicial) y f (Nodo final)
+    // Usa G (grafo), inicio (Nodo inicial) y final (Nodo final)
     Q = list()
-    visitados.add(start_v)
-    Q.append(start_v)
+    visitados.add(inicio)
+    Q.append(inicio)
     Mientras(Q no esté vacia) entonces
         v = Q.pop()
-        Si(v == f) entonces
+        Si(v == final) entonces
             retornar v
         terminar
         Para cada w en G[v] empezar
@@ -45,11 +43,15 @@
 4.- Resultados:
     count = 1
     p = parent[final]
+    res.append(final)
+    res.append(p)
     Mientras(p != inicio) entonces
         p = parent[p]
+        res.append(p)
         count++
     terminar
     Escribir(count)
+    Escribir(reverse(res))
 
 5.- Navegabilidad:
     No hay
@@ -63,17 +65,11 @@ def meta():
 def datos():
     def _inicializar():
         global G, visitados, parent
-        G = {
-                1: set([2, 3]),
-                2: set([4, 5]),
-                3: set([6, 7]),
-                4: set([8, 9]),
-                5: set(),
-                6: set(),
-                7: set(),
-                8: set(),
-                9: set(),
-            }
+        def __leer_grafo():
+            file = input("Archivo: ")
+            with open(file) as f:
+                return f.read()
+        G = eval(__leer_grafo())
         visitados = set()
         parent = dict()
     def _pedir_datos():
@@ -84,13 +80,13 @@ def datos():
     _inicializar()
     _pedir_datos()
 
-def calculos(G, start_v, f):
+def calculos(G, inicio, final):
     Q = list()
-    visitados.add(start_v)
-    Q.append(start_v)
+    visitados.add(inicio)
+    Q.append(inicio)
     while Q:
         v = Q.pop()
-        if v == f:
+        if v == final:
             return v
         for w in G[v]:
             if w not in visitados:
@@ -99,12 +95,16 @@ def calculos(G, start_v, f):
                 Q.append(w)
 
 def resultados():
+    res = list()
     count = 1
     p = parent[final]
+    res.append(final)
+    res.append(p)
     while p != inicio:
         p = parent[p]
+        res.append(p)
         count = count + 1
-    print(count)
+    print(res[::-1], count, sep = ': ')
 
 if __name__ == "__main__":
     meta()
