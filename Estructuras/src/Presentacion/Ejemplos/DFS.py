@@ -1,6 +1,6 @@
 """
 1.- Meta:
-    Escribir("Encontrar la una ruta del nodo (root) a nodo (leave)")
+    Escribir("Encontrar una ruta del nodo (root) a nodo (leave)")
     Escribir("como en un laberinto")
 
 2.- Datos:
@@ -55,6 +55,7 @@ def meta():
 def datos():
     def _inicializar():
         global G, visitados
+
         def __leer_grafo():
             file = input("Archivo: ")
             with open(file) as f:
@@ -64,6 +65,7 @@ def datos():
 
     def _preguntar_nodos():
         global inicio, final
+
         inicio = int(input("Nodo inicio: "))
         final  = int(input("Nodo final : "))
 

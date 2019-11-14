@@ -8,7 +8,7 @@
     A elección del usuario
 
 
-2.- Datos:
+2.- Datos(n):
     // Usa n para saber cuantos Vectores leer
     vectors[] = nuevo Vector[n]
     abrir(in)
@@ -64,7 +64,7 @@
     // Usa in  como arg[0]
     // Usa out como arg[1]
     Hacer
-        llamar a MosrarMenu()
+        llamar a MostrarMenu()
     Mientras(option < 0 o option >= 4)
     llamar a Direccionar()
 

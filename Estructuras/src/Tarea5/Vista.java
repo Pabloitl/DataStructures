@@ -13,6 +13,7 @@ public class Vista {
     private int getInt() {
         Vista v = new Vista();
         Scanner in = new Scanner(System.in);
+
         while(!in.hasNextInt())
             v.mostrarln(in.nextLine() + " no es válido");
         return in.nextInt();

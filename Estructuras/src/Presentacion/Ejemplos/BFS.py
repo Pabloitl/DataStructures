@@ -65,6 +65,7 @@ def meta():
 def datos():
     def _inicializar():
         global G, visitados, parent
+
         def __leer_grafo():
             file = input("Archivo: ")
             with open(file) as f:
@@ -72,6 +73,7 @@ def datos():
         G = eval(__leer_grafo())
         visitados = set()
         parent = dict()
+
     def _pedir_datos():
         global inicio, final
         inicio = int(input("Nodo inicio: "))

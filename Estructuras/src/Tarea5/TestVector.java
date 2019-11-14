@@ -34,6 +34,7 @@ public class TestVector {
     public Vector[] datos(int n) {
         Vector vectors[] = new Vector[n];
         Persistencia p = new Persistencia(in, "r");
+
         for(int i = 0; i < n; ++i) {
             double x = p.leerDouble();
             double y = p.leerDouble();
@@ -80,17 +81,20 @@ public class TestVector {
 
     public void escribir() {
         Persistencia p = new Persistencia(out, "w");
+
         p.escribir(msg);
         p.cerrar();
     }
 
     public void mostrar() {
         Vista v = new Vista();
+
         v.mostrar(msg);
     }
 
     private void mostrarMenu() {
         Vista v = new Vista();
+
         v.mostrarln("Menu: ");
         v.mostrarln("1.- Setters");
         v.mostrarln("2.- Getters");

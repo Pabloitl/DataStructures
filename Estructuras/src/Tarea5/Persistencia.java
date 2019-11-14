@@ -20,11 +20,10 @@ public class Persistencia {
 
     private void init(String mode) {
         try {
-            if(mode.equals(permission[0])) {
+            if(mode.equals(permission[0]))
                 in = new Scanner(f);
-            } else if(mode.equals(permission[1])) {
+            else if(mode.equals(permission[1]))
                 out = new FileWriter(f);
-            }
         } catch(Exception e) {
             System.exit(0);
         }
