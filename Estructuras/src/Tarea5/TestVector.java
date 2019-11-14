@@ -1,7 +1,6 @@
 package Tarea5;
 
 import Examen1.Vector;
-import java.util.Scanner;
 
 public class TestVector {
     String msg, in, out;
@@ -16,11 +15,12 @@ public class TestVector {
         }
         t.in  = args[0];
         t.out = args[1];
-        do {
-            t.mostrarMenu();
-        } while(t.option <= 0 || t.option >= 3);
-        t.direccionar();
-        t.resultados();
+        while (true) {
+            do t.mostrarMenu();
+            while(t.option <= 0 || t.option >= 5);
+            t.direccionar();
+            t.resultados();
+        }
     }
 
     public void meta() {
@@ -99,6 +99,7 @@ public class TestVector {
         v.mostrarln("1.- Setters");
         v.mostrarln("2.- Getters");
         v.mostrarln("3.- Operaciones");
+        v.mostrarln("4.- Salir");
         v.mostrar("opción: ");
         option = v.getInt();
     }

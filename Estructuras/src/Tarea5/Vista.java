@@ -1,5 +1,7 @@
 package Tarea5;
 
+import java.util.Scanner;
+
 public class Vista {
     public void mostrar(String msg) {
         System.out.print(msg);
@@ -10,7 +12,7 @@ public class Vista {
         System.out.println();
     }
 
-    private int getInt() {
+    public int getInt() {
         Vista v = new Vista();
         Scanner in = new Scanner(System.in);
 

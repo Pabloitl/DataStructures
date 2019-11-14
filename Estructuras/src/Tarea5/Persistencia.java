@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Persistencia {
     String permission[] = {"r", "w"};
@@ -25,6 +23,7 @@ public class Persistencia {
             else if(mode.equals(permission[1]))
                 out = new FileWriter(f);
         } catch(Exception e) {
+            System.out.println("Ocurrió un error al abrir el archivo");
             System.exit(0);
         }
     }
@@ -46,6 +45,7 @@ public class Persistencia {
         try {
             out.write(msg);
         } catch(IOException ex) {
+            System.out.println("Ocurrió un error al escribir");
             System.exit(0);
         }
     }
@@ -55,6 +55,7 @@ public class Persistencia {
             if(out != null) out.close();
             else if(in != null) in.close();
         } catch(Exception e) {
+            System.out.println("Ocurrió un error al cerrar el archivo");
             System.exit(0);
         }
     }

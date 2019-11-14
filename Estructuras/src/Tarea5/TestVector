@@ -65,7 +65,7 @@
     // Usa out como arg[1]
     Hacer
         llamar a MostrarMenu()
-    Mientras(option < 0 o option >= 4)
+    Mientras(option < 0 o option >= 5)
     llamar a Direccionar()
 
     5.1.- MostrarMenu:
