@@ -16,7 +16,7 @@
         Mientras (nombre != "fin")) empezar
             Escribe("cuanto pesa la persona" + cuenta + ": "); peso = ?
             Escribe("la talla de la persona" + cuenta + "es : "); talla = ?
-            cuanta++;
+            cuenta++;
             imcp = nuevo IMC(nombre, peso, talla);
             lsl.insert(imcp);
             Escribe("Deme el nombre de la persona" + cuenta);
@@ -120,7 +120,7 @@
             Escribir("1.- por teclado");
             Escribir("2.- por archivo");
             Escribir("3.- Regresar al menú principal");
-            Escribir("su eleccioń: ");
+            Escribir("su eleccion: ");
             entrada = ?
             Según (entrada) empezar
                 caso 1: captura(); romper;
