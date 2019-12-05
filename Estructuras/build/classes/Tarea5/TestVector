@@ -1,7 +1,14 @@
 1.- Meta:
     Probar la clase Vector derivada de Dirigible ADT
+    de forma pesistente (leyendo y escribiendo a archivos)
+    Se pretende probar:
+        * Setters
+        * Getters
+        * Operaciones Aritméticas
+    A elección del usuario
 
-2.- Datos:
+
+2.- Datos(n):
     // Usa n para saber cuantos Vectores leer
     vectors[] = nuevo Vector[n]
     abrir(in)
@@ -57,8 +64,8 @@
     // Usa in  como arg[0]
     // Usa out como arg[1]
     Hacer
-        llamar a MosrarMenu()
-    Mientras(option < 0 o option >= 4)
+        llamar a MostrarMenu()
+    Mientras(option < 0 o option >= 5)
     llamar a Direccionar()
 
     5.1.- MostrarMenu:

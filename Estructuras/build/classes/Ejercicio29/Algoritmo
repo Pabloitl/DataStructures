@@ -1,46 +1,46 @@
 1.- Meta:
-    Para ilustrar la inserción de nodods al principio de una lista simplemente ligada usan domo Nodo
-    un IMC pueden leerse los datos de archivo o capturarlos por centinela. La salida puede ser elegible
-    a pantalla o archivo.
+    Para ilustrar la inserción de nodos al principio de una lista simplemente
+    ligada usan domo Nodo un IMC pueden leerse los datos de archivo o
+    capturarlos por centinela. La salida puede ser elegible a pantalla o archivo
 
 2.- Datos:
     2.1.- captura()
-        Se capturan datos: nombre, peso,y talla de varias personas uasndo datos centinela para terminar
+        Se capturan datos: nombre, peso,y talla de varias personas usando
+        datos centinela para terminar
 
-        cuenta = 1
-        MySimpleLinkedList lsl = newa MySimpleLinkedList();
+        cuenta = 1;
+        MySimpleLinkedList lsl = nueva MySimpleLinkedList();
         centinela = "fin";
-        Escribe("Deme el nombre d lapersona" + cuenta + ":")
+        Escribe("Deme el nombre de la persona" + cuenta + ":");
         Escribe("o \"fin\" para terminar: "); nombre = ?
-        Mientras (nombre != "fin)) empezar
+        Mientras (nombre != centinela)) empezar
             Escribe("cuanto pesa la persona" + cuenta + ": "); peso = ?
-            Escribe("la talla de la persona" + cuenta + "es : ");; talla = ?
-            cuanta = cuenta + 1;
-            imcp = nuevo IMC(nombre, peso, talla)
-            lsl.insert(imcp)
-            Escribe("Deme el nombre de la persona" + cueta)
-            Escribe("o \"fin\" para termianr"); nombre = ?
+            Escribe("la talla de la persona" + cuenta + "es : "); talla = ?
+            cuenta++;
+            imcp = nuevo IMC(nombre, peso, talla);
+            lsl.insert(imcp);
+            Escribe("Deme el nombre de la persona" + cuenta);
+            Escribe("o \"fin\" para terminar"); nombre = ?
         terminar
 
     2.2.- lectura()
-        Dr lrrtsn lod fsyod<. nombre, peso y talla de varias personas
-        de un archivo en el disco cuyo nombre debera saber el usuario
-        en caso de no saberlo se presentara la lista de arhivo
+        Se leen nombre, peso y talla de varias personas
+        de un archivo en el disco cuyo nombre deberá saber el usuario
+        en caso de no saberlo se presentara la lista de archivo
 
             2.2.2 pideArchivo()
-                preguntar al usuario:
-                "Deme nombre de archivo a leer:"
-                archivo =?
-                Si (arhcivo == null || archivo == "")
-                    ListaFicheros()
+                Escribir("Deme nombre de archivo a leer: "); archivo = ?
+                Si (archivo == null || archivo == "") entonces
+                    ListaFicheros();
                 Sino
-                    datosIn(archivo)
+                    datosIn(archivo);
+                terminar
 
     2.3.- datosIn(archivo) : int // entrada por archivo
-        cuanta = 0
-        in = abrir(arhicvo)
-        Mientras (in.leer() != E)F) empezar
-            cuenta = cuanta + 1;
+        cuanta = 0;
+        in = abrir(arhicvo);
+        Mientras (in.leer() != EOF) empezar
+            cuenta++;
             nombre = in.nextLine();
             peso = toDouble(in.nextLine());
             talla = toDouble(in.nextLine());
@@ -60,11 +60,11 @@
 
     3.2.- insert(lsl, imc)      // debe implementarse en el ADT
         q = nuevo IMC();
-        q.setNext(lsl)
+        q.setNext(lsl);
         lsl = q;
 
 4.- Resultados:
-    4.1.- Desplegar la lista de nodod insertados en la misma
+    4.1.- Desplegar la lista de nodos insertados en la misma
         // Se imprime una tablita para dar formato
         cuenta = 1;
         temp = lsl;
@@ -77,8 +77,8 @@
         terminar
 
     4.2.- Guardar la información de la lista en el disco
-        Escribe("Deme nombrer del arhcivo: "); arch = ?
-        Si (existe(archi))
+        Escribe("Deme nombre del archivo: "); arch = ?
+        Si (existe(arch))
             datosOut(arch, lsl);
         de otro modo ListaFicheros("."); // método auxiliar
 
@@ -95,15 +95,15 @@
         close(arch);        // Cierra el archivo de salida
 
 5.- Navegabilidad:
-    5.1.- principal
+    5.1.- Principal
         Repetir empezar
-            Escribir("Menu principal: ");
-            Escribir(1.- Descripción del programa);
-            Escribir(2.- Entrada de datos"
-                    3.- Restulados
-                    4.- Ayuda
-                    5.- Salir
-                    su opción:);
+            Escribir("Menú principal: ");
+            Escribir("1.- Descripción del programa");
+            Escribir("2.- Entrada de datos");
+            Escribir("3.- Resultados");
+            Escribir("4.- Ayuda");
+            Escribir("5.- Salir");
+            Escribir("su opción:");
             opcion = ?
             Según (opcion) empezar
                 caso 1: Inicio(); romper;
@@ -114,39 +114,36 @@
             terminar
         terminar mientras (opcion != 5);
 
-    5.2.- sub menu de entradas()
+    5.2.- submenu de entradas()
         Repetir empezar
-            Escribir("calculo del indice de masa corporal
-
-                    1.- por teclado
-                    2.- por archivo
-                    3.- Regresar al menú principal
-
-                    su eleccioń: ");
+            Escribir("calculo del indice de masa corporal");
+            Escribir("1.- por teclado");
+            Escribir("2.- por archivo");
+            Escribir("3.- Regresar al menú principal");
+            Escribir("su eleccion: ");
             entrada = ?
             Según (entrada) empezar
                 caso 1: captura(); romper;
                 caso 2: lectura(); romper;
-                omición: Escribir("opciones validas 1-3");
+                omisión: Escribir("opciones validas 1-3");
             terminar
         terminar Mientras(entrada != 3);
 
     5.3.- Ayuda()
-        Escribir("Al dar enter se presentaln loos archivo almacenados en
-        el directorio de trabajo actual");
+        Escribir("Al dar enter se presentan los archivo almacenados en");
+        Escribir("el directorio de trabajo actual");
 
     5.4.- Salidas()
         opción = 0;
         Repetir empezar
-            Escribe("Salidas: incdicd de masa corporal
-                    1.- por pantalla
-                    2.- por archivo
-                    3.- regresar al principal
-
-                    su eleccion:"); opcion = ?
+            Escribe("Salidas: indice de masa corporal");
+            Escribe("1.- por pantalla");
+            Escribe("2.- por archivo");
+            Escribe("3.- regresar al principal");
+            Escribe("su elección:"); opcion = ?
             Según (opcion) empezar
-                caso 1: resultaods(4.1); romper
+                caso 1: resultados(4.1); romper
                 caso 2: guardar(4.2); romper;
-                omision: Escribe opciones validas
+                omisión: Escribe opciones validas
             terminar
         terminar Mientras (opcion != 3);

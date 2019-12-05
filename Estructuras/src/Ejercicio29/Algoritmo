@@ -13,7 +13,7 @@
         centinela = "fin";
         Escribe("Deme el nombre de la persona" + cuenta + ":");
         Escribe("o \"fin\" para terminar: "); nombre = ?
-        Mientras (nombre != "fin")) empezar
+        Mientras (nombre != centinela)) empezar
             Escribe("cuanto pesa la persona" + cuenta + ": "); peso = ?
             Escribe("la talla de la persona" + cuenta + "es : "); talla = ?
             cuenta++;
@@ -30,7 +30,7 @@
 
             2.2.2 pideArchivo()
                 Escribir("Deme nombre de archivo a leer: "); archivo = ?
-                Si (arhcivo == null || archivo == "") entonces
+                Si (archivo == null || archivo == "") entonces
                     ListaFicheros();
                 Sino
                     datosIn(archivo);
@@ -77,7 +77,7 @@
         terminar
 
     4.2.- Guardar la información de la lista en el disco
-        Escribe("Deme nombrer del arhcivo: "); arch = ?
+        Escribe("Deme nombre del archivo: "); arch = ?
         Si (existe(arch))
             datosOut(arch, lsl);
         de otro modo ListaFicheros("."); // método auxiliar

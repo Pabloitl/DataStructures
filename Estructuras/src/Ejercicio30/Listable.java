@@ -1,10 +1,15 @@
 package Ejercicio30;
 
 public interface Listable {
-    public  boolean  esVacia();
-    private void     insertar(Object x, Nodo p);
-    public  void     inserPrimero(Object x);
-    private Nodo     localizar(Object x);
-    public  void     suprimir(Object x);
-    public  void     anula();
+    public void    empty();
+    public boolean isEmpty();
+    public boolean contains(Object x);
+    public int     size();
+    public void    append(Object x);
+    public void    preppend(Object x);
+    public boolean insert(Object x, int i);
+    public boolean remove(int i);
+    public boolean set(int i, Object x);
+    public int     indexOf(Object x);
+    public Object  get(int i);
 }

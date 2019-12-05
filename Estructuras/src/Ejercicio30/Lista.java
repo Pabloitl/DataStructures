@@ -1,70 +1,125 @@
 package Ejercicio30;
 
 public class Lista implements Listable {
-    Nodo p;
+    private Node list;
+    private int size = 0;
 
     @Override
-    public boolean esVacia() { return p == null; }
-
-    @Override
-    private void insertar(Object x, Nodo p) {
-        Nodo nuevo = new Nodo(x, p.next);
-        p.next = nuevo;
+    public void empty() {
+        list = null;
+        size = 0;
     }
 
     @Override
-    public void inserPrimero(Object x) { insertar(x, p); }
+    public boolean isEmpty() { return size == 0; }
 
     @Override
-    private Object localizar(Object x) {
-        if(esVacia()) return null;
-        Nodo current = p;
-        while(!x.equals(current.getX()) && p.getNext() != null)
-            current = p.getNext();
-        return current;
-    }
+    public boolean contains(Object x) {
+        Node current = list;
 
-    @Override
-    public void suprimir(Object x) {
-        Nodo temp = localizar(x);
-        temp.setX() = temp.getNext().getX();
-        temp.setNext() = temp.getNext().getNext();
-        temp.getNext().setNext(null);
-    }
-
-    @Override
-    public void anula() {
-        p = null;
-    }
-
-    @Override
-    public String toString() {
-        if(esVacia()) return "";
-        StringBuilder lista = new StringBuilder();
-        Nodo current = p;
-        while(!x.equals(current.getX()) && p.getNext() != null) {
-            lista.append(current.getX().toSTring());
-            current = p.getNext();
+        while(current != null) {
+            if(current.getX().equals(x)) return true;
+            current = current.getNext();
         }
-        return lista.toString();
+        return false;
+    }
+
+    @Override
+    public int size() { return size; }
+
+    @Override
+    public void append(Object x) { insert(x, size); }
+
+    @Override
+    public void preppend(Object x) { insert(x, 0); }
+
+    @Override
+    public boolean insert(Object x, int i) {
+        Node current = list;
+
+        if(i > size || i < 0) return false;
+        if(list == null) list = new Node(x);
+        else if(i == 0) {
+            list = new Node(x, list);
+        }
+        else {
+            for(int index = 0; index < i - 1; ++index)
+                current = current.getNext();
+            current.setNext(new Node(x, current.getNext()));
+        }
+        size++;
+        return true;
+    }
+
+    @Override
+    public boolean remove(int i) {
+        Node current = list;
+        int index = 0;
+
+        if(size < i) return false;
+        while(index++ < i)
+            current = current.getNext();
+        current.setNext(current.getNext().getNext());
+        size--;
+        return true;
+    }
+
+    @Override
+    public boolean set(int i, Object x) {
+        Node current = list;
+        int index = 0;
+
+        if(size < i) return false;
+        while(index++ < i)
+            current = current.getNext();
+        current.setX(x);
+        return true;
+    }
+
+    @Override
+    public int indexOf(Object x) {
+        Node current = list;
+        int index = 0;
+
+        while(current != null) {
+            if(x.equals(current.getX())) return index;
+            current = current.getNext();
+            index++;
+        }
+        return -1;
+    }
+
+    @Override
+    public Object get(int i) {
+        Node current = list;
+        int index = 0;
+
+        while(current != null) {
+            if(index++ == i) return current.getX();
+            current = current.getNext();
+        }
+        return null;
     }
 }
 
-public class Nodo {
-    Object x;
-    Nodo   next;
+class Node {
+    private Object x;
+    private Node   next;
 
-    public Nodo(Object x) { this.x = x; }
+    public Node(Object x) { this.x = x; }
 
-    public Nodo(Object x, Nodo next) {
+    public Node(Object x, Node next) {
         this(x);
         this.next = next;
     }
 
     public void setX(Object x) { this.x = x; }
-    public void setNext(Nodo next) { this.next = next; }
+
+    public void setNext(Node next) { this.next = next; }
+
     public Object getX() { return x; }
-    public Nodo getNext() { return next; }
+
+    public Node getNext() { return next; }
 
     @Override
     public String toString() {

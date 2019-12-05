@@ -1,23 +1,21 @@
 """
 1.- Meta:
-    Escribir("Encontrar la una ruta del nodo (root) a nodo (leave)")
+    Escribir("Encontrar una ruta del nodo (root) a nodo (leave)")
     Escribir("como en un laberinto")
 
 2.- Datos:
     2.1.- Inicializar:
         // Inicializa el grafo y set de visitados
-        G = {
-            1: [2, 3],
-            2: [4, 5],
-            3: [6, 7],
-            4: [8, 9],
-            5: [],
-            6: [],
-            7: [],
-            8: [],
-            9: []
-            }
+        G = eval(leerGrafo())
         visitados = set()
+
+        2.1.1.- LeerGrafo:
+            // Lee el grafo de un archivo
+            Escribir("Archivo: ") file = ?
+            abrir(file)
+            s = leerTodo(file)
+            cerrar(file)
+            retornar s
 
     2.2.- PreguntarNodos:
         Escibir("Nodo inicio: ") inicio = ?
@@ -57,21 +55,17 @@ def meta():
 def datos():
     def _inicializar():
         global G, visitados
-        G = {
-                1: set([2, 3]),
-                2: set([4, 5]),
-                3: set([6, 7]),
-                4: set([8, 9]),
-                5: set(),
-                6: set(),
-                7: set(),
-                8: set(),
-                9: set()
-            }
+
+        def __leer_grafo():
+            file = input("Archivo: ")
+            with open(file) as f:
+                return f.read()
+        G = eval(__leer_grafo())
         visitados = set()
 
     def _preguntar_nodos():
         global inicio, final
+
         inicio = int(input("Nodo inicio: "))
         final  = int(input("Nodo final : "))
 

@@ -1,0 +1,38 @@
+1.- Meta:
+    Mostrar en forma de presentación una serie de imágenes ubicadas en
+    un directorio escogido por el usuario.
+
+2.- Datos:
+    Escribir("Ingrese el directorio a presentar: "), dir = ?
+
+3.- Calculos:
+    formats = ".*jpg$|.*png$|.*jpeg$" // Regex
+    files = listFiles(dir)
+    images = filterFiles(files, formats)
+    Si(images.size() == 0) entonces
+        Escribir("No hay imágenes a mostrar")
+        Salir
+    terminar
+
+    3.1.- FilterFiles(File[] files, String pattern):
+        images = nueva ListaCircular()
+        Para cada file en files empezar
+            Si( file.getName().matches(formats) )
+                images.append(file)
+            terminar
+        terminar
+        retornar images
+
+    3.2.- ListFiles(String dir):
+        return new File(dir).list();
+
+4.- Resulados:
+    i, sleepTime = 0, 2
+    Mientras (Verdadero)
+        Mostrar(images.get(i))
+        esperar(sleepTime)
+        i++
+    terminar
+
+5.- Navegabilidad:
+    No hay, el programa termina cuando el usuario cierra el programa
