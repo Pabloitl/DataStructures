@@ -24,9 +24,7 @@ public class Fibonacci {
     }
 
     public int datos() {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Ingrese el límite >> ");
-        return in.nextInt();
+        return getInt("Ingrese el límite >> ", 0, Integer.MAX_VALUE);
     }
 
     public int calculos(int n) {
@@ -40,5 +38,25 @@ public class Fibonacci {
         for(int valor : buff.values())
             System.out.printf("%d ", valor);
         System.out.println();
+    }
+    
+    private int getInt(String msg, int min, int max) {
+        Scanner in = new Scanner(System.in);
+        int result;
+
+        do {
+            System.out.print(msg);
+            while(!in.hasNextInt()) {
+                String temp = "";
+                try { temp = in.next(); }
+                catch (Exception e) {
+                    System.out.println("Error");
+                    in = new Scanner(System.in);
+                }
+                System.out.println(temp + " no es valido");
+            }
+            result = in.nextInt();
+        } while(result < min || result > max);
+        return result;
     }
 }

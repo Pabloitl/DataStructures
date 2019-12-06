@@ -1,0 +1,168 @@
+Miercoles 23 de Octubre 2019
+
+1.- Meta: 
+
+Para ilustrar la insercion de nodos al principio de una lista 
+Simplemente ligada usando como Nodo un IMC pueden leerse los datos de 
+archivo o capturarlos por centinela.
+
+
+2.- Datos:
+ 
+      	2.1.1.- captura()
+             Se capturan datos: nombre, peso y talla de varias persona usando
+	         dato centinela para terminar.
+
+           cuenta = 1
+           MySimpleLinkedList lsl = nueva MySimpleLinkedList();
+           centinela = "fin"
+           Escribe("Deme el nombre de la persona " + cuenta)
+           Escribe( "o \"fin\" para terminar: "); nombre = ?
+           mientras (nombre != "fin") empezar
+               Escribe("cuanto pesa la persona " + cuenta + ": "); peso = ?
+               Escribe("la talla de la persona" + cuenta + "es: "); talla = ?
+               cuenta = cuenta + 1
+               imcp = nuevo IMC(nombre, peso, talla)
+               lsl.insert(imc)
+               Escribe("Deme el nombre de la persona " + cuenta)
+               Escribe( "o \"fin\" para terminar: "); nombre = ?
+           terminar
+
+		2.2.1 - lectura()
+              se leeran los datos: nombre, peso y talla de varias personas 
+              de un archivo en el disco cuyo nombre debera saber el usuario
+              en caso de no saberlo se presentara la lista de archivos en el 
+              subdirectorio de trabajo actual.
+
+			  2.2.2 pideArchivo() 
+               preguntar al usuario:
+               “Deme nombre del archivo a leer:”
+               archivo = ?
+                  Si (archivo == null || archivo == “”) 
+                      ListaFicheros(“.”)
+                  de otro modo
+                      datosIn(archivo) 
+
+			  2.2.3 datosIn(archivo) : int //entrada por archivo
+                       cuenta = 0          // retorna el # de registros leidos
+                       in = abrir(archivo)
+                       mientras (in.leer() != EOF) empezar
+                           cuenta = cuenta + 1; 
+                           nombre = in.nextLine();
+                           peso = in.nextLine();
+                           talla = in.nextLine()
+                           imcp = nuevo IMC(nombre, peso, talla)
+                           lsl.insert(imc)
+                       terminar
+                       in.close(); // cierra el archivo de entrada
+                       regresar i al llamador // # de registros o nodos
+
+
+3.- Calculos:
+ 
+			3.1.- calcImc(imcp)
+                  peso = imcp.getPeso();
+                  talla = imcp.getTalla();
+                  if (talla != 0)
+                     imc = peso / (talla * talla)
+                  regresar imc calculado al llamador
+
+            3.2.- insert(lsl, imc)      // ojo debe implementarse en el ADT
+                     q = nuevo Node()
+                     q.setNext(lsl)
+                     lsl = q;
+
+
+4.- Resultados: 
+
+		4.1 Desplegar la lista de nodos insertados en la misma.
+                Escribe("            Tabla de IMC")
+                Escribe("_________________________________________")
+                Escribe("Num.  Nombre      Peso     Talla     IMC") 
+                Escribe("_________________________________________")
+                cuenta = 1;
+                temp = lsl
+                mientras (temp != null) empezar
+                   Escribe(j+ " " + t.info.getNombre())
+                   Escribe("   " + t.info.getPeso())
+                   Escribe("   " + t.info.getTalla())
+                   temp = temp.getNext();
+                terminar
+
+		4.2 Guardar la informacion de la lista en el disco
+               Escribe("Deme nombre del archivo:"); arch = ?
+               si (existe(arch))
+                   datosOut(arch, lsl);
+               de otro modo listaFicheros(".");  // metodo auxiliar
+
+        4.3 datosOut(arch, lsl) 
+               out = abrir(arch)
+               temp = lsl 
+               mientras (temp != null) empezar
+                  escribe(arch, temp.info.nombre);
+                  escribe(arch, temp.info.peso);
+                  escribe(arch, temp.info.talla);
+                  temp = temp.getNext()
+               terminar
+               escribe("Se escribieron los datos en:"+file);
+               close(arch);        // cierra el archivo de salida
+
+
+5.- Navegabilidad: 
+	
+   5.1 principal
+	Repetir empezar
+	    Escribir(“Menu principal:”)
+        Escribir(“1.- Descripcion del programa”)
+	    Escribir(“2.- Entrada de datos”)
+	    Escribir(“3.- Resultados”)
+	    Escribir(“4.- Ayuda”)
+	    Escribir(“5.- Salir”)
+	    Escribir(“su opcion:”)
+	    opcion = ?
+	    según (opcion) empezar
+ 		   caso 1: Inicio();romper
+		   caso 2: entradas(); romper
+		   caso 3: salidas(); romper
+           caso 4: ayuda(): romper
+		   default:escribir(“Opciones validas 1-5”)
+	    terminar
+	terminar mientras (opcion != 5)
+
+5.2 sub menu de entradas()
+		Repetir empezar
+	          escribir(“promedio de n datos”)
+	          escribir("___________________")
+	          escribir(“1.- por teclado”)
+	          escribir(“2.- por archivo”)
+		      escribir(“3.- regresar al menú principal”)
+              escribir("______________________________")
+		      escribir(“su elección:”)
+		      entrada = ?
+	          según (entrada) empezar
+		       caso 1:captura(); romper
+		       caso 2:lectura(); romper
+		       omision:escribir(“opciones validas 1-3”)
+	           terminar
+      	      terminar mientras(entrada!=3)
+
+5.3 Ayuda()
+       Escribir(“al dar <enter> se presentan los archivos almacenados”)
+       Escribir(“en el subdirectorio de trabajo actual”)
+
+
+5.4 salidas() 
+    opcion=0;
+    repetir empezar
+      Escribe("salidas: promedio de n datos");
+      Escribe("1.- por pantalla. ");
+      Escribe("2.- por archivo. ");  
+      Escribe("3.- regresar al principal\n");
+      Escribe("____________________________")
+      Escribe("Su eleccion:"); opcion = ?
+      segun(opcion) empezar
+        caso 1: resultados(4.1); romper 
+        cas0 2: guardar(4.2); romper;
+        omision: Escribe("Opciones validas 1-3");
+      terminar
+    terminar mientras (opcion != 3)
